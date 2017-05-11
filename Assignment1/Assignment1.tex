@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage{qtree}
+
+\begin{document}
+\title{CIS 425 Assignment 1}
+\author{Zhexin Jia}
+\maketitle
+1. (4.1)
+
+\Tree[.e [.n [.{\indent\indent n\indent\indent} [.d [.2 ] ] ] [.d [.5 ] ] ] ]\\\\
+\indent Yes, there are many other derivations for 25.
+
+\indent Example: $e->e+e->nd+n->dd+d->24+1->25$
+
+\indent Yes, there are many other parse trees for 25. 
+Since there are lots of different derivations for 25, every single derivation can build a different parse tree.\\
+
+2. (4.2)
+
+(a). $1-1*1$
+
+\Tree[.e [.e [.1 ] ] [.- ] [.e [.e [.1 ] ] [.* ] [.e [.1 ] ] ] ]\\\\\\
+
+(b). $1-1+1$
+
+\centerline{left associativity:}
+
+\Tree[.e [.e [.e [.1 ] ] [.- ] [.e [.1 ] ] ] [.+ ] [.e [.1 ] ] ]\\\\
+
+\centerline{right associativity:}
+
+\Tree[.e [.e [.1 ] ] [.- ] [.e [.e [.1 ] ] [.+ ] [.e [.1 ] ] ] ]\\\\\\
+
+(c). $1-1+1-1+1$ (+ has higher precedence than -)\\
+
+\centerline{left associativity:}
+
+\Tree[.e [.e [.e [.1 ] ] [.- ] [.e [.e [.1 ] ] [.+ ] [.e [.1 ] ] ] ] [.- ] [.e [.e [.1 ] ] [.+ ] [.e [.1 ] ] ] ]\\\\\\\\\\
+
+\centerline{right associativity:}
+
+\Tree[.e [.e [.1 ] ] [.- ] [.e [.e [.e [.1 ] ] [.+ ] [.e [.1 ] ] ] [.- ] [.e [.e [.1 ] ] [.+ ] [.e [.1 ] ] ] ] ]\\\\\\\\
+
+
+3. 
+(a). 
+
+\Tree[.E 
+			[.E [.T [.T [.F [.1 ] ] ] [.* ] [.F [.2 ] ] ] ] 
+			[.- ] 
+			[.T [.F [.( ] [.E [.T [.T [.F [.3 ] ] ] [./ ] [.F [.4 ] ] ] ] [.) ] ] ] ]\\\\\\\\\\\\
+			
+(b).
+
+\Tree[.E [.E [.E [.T [.F [.1 ] ] ] ] [.- ] [.T [.F [.2 ]] ] ] [.+ ] [.T [.F [.3 ] ] ] ]\\\\\\
+(c). 
+
+\Tree[.E [.E [.T [.T [.F [.1 ] ] ] [.* ] [.F [.2 ] ] ] ] [.- ] [.T [.T [.F [.3 ] ] ] [./ ] [.F [.4 ] ] ] ]\\\\\\
+4. What language does this grammar generate?
+
+\indent $S:=aSa|aBa\\
+\indent B := bB|b$\\
+
+\indent The language $L = \{ aba, aabaa, abba, aabbaa, aaabbaaa, ......\}\\
+\indent\indent\indent\indent\indent  = \{ a^{n} b^{m} a^{n}  |  m>=1, n>=1\} $\\
+\indent The language L consists at least 1 a and 1 b. all the b's are consecutive. The number of a's in the left side of b's is equal to the number of a's in the right side of b's.\\\\\\\\
+5. What language does this grammar generate?\\
+\indent $S:=abScB|\varepsilon\\
+\indent B:=bB|b$\\
+
+\indent The language $L =\{\varepsilon, abcb, ababcbcb,abababcbbbbbcbbbcbb... \}\\
+\indent\indent\indent\indent\indent = \{ (ab)^{n}(cbb^{*})^{n} | n>=0\}$\\
+
+6. Let L be language over alphabet {a, b, c} which consists of at least three consecutive b's. Write BNF grammar for L.\\
+
+$E := TbbbT\\
+\indent T := aT|bT|cT|\varepsilon$\\
+
+7. Find a CFG that generates the language ${a^n b^m|0<=n<=m<=2n}$.\\
+
+\indent $S := aSbb|aSb|\varepsilon$\\
+
+8. Find a CFG that generates words formed from {0, 1} that begin and end with the same symbol.\\
+
+\indent $ S := 0T0|1T1\\
+\indent T := 0T|1T|\varepsilon$\\
+
+\end{document}
